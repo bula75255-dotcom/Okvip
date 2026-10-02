@@ -54,12 +54,8 @@
 
     let isScriptStopped = GM_getValue('ice_script_stopped', false);
 
-    function getApiKey() {
-        const storedKey = GM_getValue('omocaptcha_api_key', '');
-        if (!storedKey || storedKey.trim() === '') {
-            return DEFAULT_API_KEY;
-        }
-        return storedKey;
+        function getApiKey() {
+        return DEFAULT_API_KEY; // Luôn dùng key mới trong code, bỏ qua bộ nhớ đệm cũ
     }
 
     function getViotpToken() {
