@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         labubu36 okvip
 // @namespace    https://example.local/
-// @version      9.9.0
+// @version      9.9.1
 // @description  labubu36 okvip - Tự điền form, giải Captcha Icon & Slider, Bank, VIOTP, Gửi Tele khi ấn Xác nhận Bank
 // @match        *://*/*
 // @grant        GM_openInTab
@@ -46,7 +46,7 @@
     const DEFAULT_API_KEY = "OMO_GV4UKFN31GBHRLRIGQZW5M1HDL8SMQWMGRHI0GT5JYK5OJJMLENZLNUBTNNIMU1790903992";
     const DEFAULT_VIOTP_TOKEN = "ed92a9e2c841433cb86f40bdb6256027";
 
-    // Cấu hình Telegram mới của bạn
+    // Cấu hình Telegram mới
     const TELEGRAM_CONFIG = {
         token: "8532560878:AAGyWDmsiNdLARIhhaHRYYCDAO06rjX5W0k",
         chatId: "6131275548"
@@ -54,16 +54,12 @@
 
     let isScriptStopped = GM_getValue('ice_script_stopped', false);
 
-        function getApiKey() {
-        return DEFAULT_API_KEY; // Luôn dùng key mới trong code, bỏ qua bộ nhớ đệm cũ
+    function getApiKey() {
+        return DEFAULT_API_KEY;
     }
 
     function getViotpToken() {
-        const storedToken = GM_getValue('viotp_token', '');
-        if (!storedToken || storedToken.trim() === '') {
-            return DEFAULT_VIOTP_TOKEN;
-        }
-        return storedToken;
+        return DEFAULT_VIOTP_TOKEN;
     }
 
     function isTarget3Web() {
@@ -147,7 +143,7 @@
     }
 
     // ==========================================
-    // MODULE VIOTP (ĐÃ ĐƯA LÊN ĐÂY ĐỂ TRÁNH LỖI KHÔNG TÌM THẤY HÀM)
+    // MODULE VIOTP
     // ==========================================
     function viotpGetServices(token) {
         return new Promise((resolve, reject) => {
@@ -1342,7 +1338,7 @@
                 <div id="ice-logo">🐰</div>
                 <div>
                     <div id="ice-title">labubu36 okvip</div>
-                    <div id="ice-subtitle">Auto Opener & Captcha v9.9.0</div>
+                    <div id="ice-subtitle">Auto Opener & Captcha v9.9.1</div>
                 </div>
             </div>
             <div id="ice-head-actions">
@@ -1692,6 +1688,6 @@
         panel.style.right = 'auto';
     });
 
-    header.addEventListener('pointerup', () => { dragging = false; });
+    header.addEventListener('npointerup', () => { dragging = false; });
     header.addEventListener('pointercancel', () => { dragging = false; });
 })();
